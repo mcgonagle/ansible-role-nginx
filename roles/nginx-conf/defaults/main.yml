@@ -1,2 +1,2 @@
 ---
-# defaults file for nginx-conf
+default_nginx_error_log_level: "debug"
