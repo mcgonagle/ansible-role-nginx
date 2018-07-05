@@ -4,16 +4,16 @@
   state: directory
   mode: 0755
   with_nested:
-      - {{ webservers }}
+      - "{{ webservers }}"
 
 - name: write webserver.html files
   action: template src=templates/webserver.html.j2 dest=/usr/share/nginx/{{ item[0] }}/index.html
   with_nested:
-      - {{ webservers }}
+      - "{{ webservers }}"
     
 - name: write nginx webserver.conf files
   action: template src=templates/webserver.conf.j2 dest=/etc/nginx/conf.d/{{ item[0] }}.conf
   with_nested:
-      - {{ webservers }}
+      - "{{ webservers }}"
   notify:
     - reload nginx
