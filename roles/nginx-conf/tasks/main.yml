@@ -3,3 +3,7 @@
   action: template src=templates/nginx.conf.j2 dest=/etc/nginx/nginx.conf
   notify:
     - reload nginx
+
+- name: include webservers
+  include_tasks: "webservers.yml"
+      when: webservers is defined
