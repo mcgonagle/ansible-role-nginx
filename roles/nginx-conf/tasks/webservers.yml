@@ -1,11 +1,11 @@
 ---
 - name: creating /usr/share/nginx/{{ item }} 
   file:
-  path: /usr/share/nginx/{{ item }}
-  state: directory
-  mode: 0755
-  with_items:
-      - "{{ webservers }}"
+    path: /usr/share/nginx/{{ item }}
+    state: directory
+    mode: 0755
+    with_items:
+       - "{{ webservers }}"
 
 - name: write webserver.html files
   action: template src=templates/webserver.html.j2 dest=/usr/share/nginx/{{ item }}/index.html
