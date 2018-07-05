@@ -3,10 +3,10 @@ default_nginx_error_log_level: "debug"
 default_nginx_worker_connections: "512"
 
 webservers:
-    - blue
-    - red
-    - yellow
-    - green
+    - "blue"
+    - "red"
+    - "yellow"
+    - "green"
 
 ports:
     - 8081
