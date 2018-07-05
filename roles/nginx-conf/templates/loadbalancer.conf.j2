@@ -1,18 +1,13 @@
 server {
 	listen 80;
-        location /api {
-               api write=on;
-        }
     	location = /dashboard.html {
             root   /usr/share/nginx/html;
         }
         location /swagger-ui {
             root   /usr/share/nginx/html;
 	}
-	status_zone status_page;
 	location / {
 		proxy_pass http://backend;
-		health_check match=server_ok;
         	proxy_set_header Host $host;
         	proxy_set_header X-Real-IP $remote_addr;
         	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
