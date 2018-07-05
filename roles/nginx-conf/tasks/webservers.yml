@@ -1,5 +1,6 @@
 ---
-- file:
+- name: creating /usr/share/nginx/{{ item[0] }} 
+  file:
   path: /usr/share/nginx/{{ item[0] }}
   state: directory
   mode: 0755
