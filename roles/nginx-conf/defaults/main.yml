@@ -17,4 +17,7 @@ webservers:
       port: 8084
 
 loadbalancers:
+    backend:
+      name: "backend"
+      port: 80
 ...
