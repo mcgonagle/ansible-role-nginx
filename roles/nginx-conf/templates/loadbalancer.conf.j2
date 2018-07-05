@@ -1,7 +1,7 @@
 server {
 	listen 80;
 	location / {
-		proxy_pass http://{{ item[0].value.name }};
+		proxy_pass http://{{ item.value.name }};
         	proxy_set_header Host $host;
         	proxy_set_header X-Real-IP $remote_addr;
         	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -11,23 +11,4 @@ server {
         	proxy_no_cache $cookie_nocache $arg_nocache $arg_comment;
         	proxy_no_cache $http_pragma $http_authorization;
 	}
-}
-
-upstream {{ item[0].value.name }} {
-        {{ item[0].value.lb_method }};
-	zone {{ item[0].value.name }} {{ item[0].value.zone_size }};
-
-	server localhost:8081;
-	server localhost:8082;
-	server localhost:8083;
-	server localhost:8084;
-
-	#sticky cookie srv_id expires=1h  path=/;
-
-	#server side cookie
-	#sticky learn
-       	#	create=$upstream_cookie_examplecookie
-       	#	lookup=$cookie_examplecookie
-	#	zone=client_sessions:1m
-       	#	timeout=1h;
 }
