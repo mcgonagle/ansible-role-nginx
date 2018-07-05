@@ -1,5 +1,5 @@
 - name: creating /usr/share/nginx/webserver directory
-  file 
+  file:
     path: "/usr/share/nginx/red"
     state: directory
     mode: 0755
