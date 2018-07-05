@@ -5,7 +5,11 @@
     state: directory
     mode: 0755
     with_items:
-       - "{{ webservers }}"
+#       - "{{ webservers }}"
+       - red
+       - blue
+       - green
+       - yellow
 
 - name: write webserver.html files
   action: template src=templates/webserver.html.j2 dest=/usr/share/nginx/{{ item }}/index.html
