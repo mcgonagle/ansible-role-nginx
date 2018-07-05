@@ -1,5 +1,5 @@
 ---
-- name: creating /usr/share/nginx/"{{ item }}"
+- name: creating /usr/share/nginx/webserver directory
   file:
     path: /usr/share/nginx/"{{ item }}"
     state: directory
