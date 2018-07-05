@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Welcome to nginx! -{{ item }}-</title>
+<title>Welcome to nginx! -{{ item.value.name }}-</title>
 <style>
     body {
         width: 35em;
@@ -10,8 +10,8 @@
     }
 </style>
 </head>
-<body bgcolor="{{ item }}">
-<h1>Welcome to nginx! -{{ item }}-</h1>
+<body bgcolor="{{ item.value.name }}">
+<h1>Welcome to nginx! -{{ item.value.name }}-</h1>
 <p>If you see this page, the nginx web server is successfully installed and
 working. Further configuration is required.</p>
 

@@ -1,8 +1,8 @@
 server {
-    listen       127.0.0.1:{{ item[1] }};
+    listen       127.0.0.1:{{ item.value.port }};
 
     location / {
-        root   /usr/share/nginx/{{ item[0] }};
+        root   /usr/share/nginx/{{ item.value.name }};
         index  index.html index.htm;
     }
 
