@@ -1,6 +1,6 @@
 - name: creating /usr/share/nginx/webserver directory
   file:
-    path: "/usr/share/nginx/red"
+    path: "/usr/share/nginx/{{ item }}"
     state: directory
     mode: 0755
   with_items:
