@@ -1,0 +1,18 @@
+upstream {{ item.value.name }} {
+        {{ item.value.lb_method }};
+	zone {{ item.value.name }} {{ item.value.zone_size }};
+
+	server localhost:8081;
+	server localhost:8082;
+	server localhost:8083;
+	server localhost:8084;
+
+	#sticky cookie srv_id expires=1h  path=/;
+
+	#server side cookie
+	#sticky learn
+       	#	create=$upstream_cookie_examplecookie
+       	#	lookup=$cookie_examplecookie
+	#	zone=client_sessions:1m
+       	#	timeout=1h;
+}
