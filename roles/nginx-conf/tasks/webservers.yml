@@ -1,13 +1,9 @@
 - name: creating /usr/share/nginx/webserver directory
   file:
-    path: "/usr/share/nginx/{{ item }}"
+    path: "/usr/share/nginx/{{ item.value.name }}"
     state: directory
     mode: 0755
-  with_items:
-    - red
-    - blue
-    - green
-    - yellow
+  with_dict: "{{ webservers }}"
 
 - name: write webserver.html files
   action: template src=templates/webserver.html.j2 dest=/usr/share/nginx/{{ item.value.name }}/index.html

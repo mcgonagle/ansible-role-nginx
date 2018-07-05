@@ -16,4 +16,5 @@ webservers:
       name: "green"
       port: 8084
 
+loadbalancers:
 ...

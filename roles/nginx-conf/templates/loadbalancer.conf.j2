@@ -1,0 +1,43 @@
+server {
+	listen 80;
+        location /api {
+               api write=on;
+        }
+    	location = /dashboard.html {
+            root   /usr/share/nginx/html;
+        }
+        location /swagger-ui {
+            root   /usr/share/nginx/html;
+	}
+	status_zone status_page;
+	location / {
+		proxy_pass http://backend;
+		health_check match=server_ok;
+        	proxy_set_header Host $host;
+        	proxy_set_header X-Real-IP $remote_addr;
+        	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        	proxy_set_header X-Forwarded-Proto $scheme;
+        	proxy_cache_bypass $cookie_nocache $arg_nocache $arg_comment;
+        	proxy_cache_bypass $http_pragma $http_authorization;
+        	proxy_no_cache $cookie_nocache $arg_nocache $arg_comment;
+        	proxy_no_cache $http_pragma $http_authorization;
+	}
+}
+
+upstream backend {
+	zone backend 64k;
+
+	server localhost:8081;
+	server localhost:8082;
+	server localhost:8083;
+	server localhost:8084;
+
+	#sticky cookie srv_id expires=1h  path=/;
+
+	#server side cookie
+	#sticky learn
+       	#	create=$upstream_cookie_examplecookie
+       	#	lookup=$cookie_examplecookie
+	#	zone=client_sessions:1m
+       	#	timeout=1h;
+}

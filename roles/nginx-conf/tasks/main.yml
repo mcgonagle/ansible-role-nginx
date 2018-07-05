@@ -7,3 +7,7 @@
 - name: include webservers
   include_tasks: "webservers.yml"
   when: webservers is defined
+
+- name: include loadbalancers
+  include_tasks: "loadbalancers.yml"
+  when: loadbalancers is defined
