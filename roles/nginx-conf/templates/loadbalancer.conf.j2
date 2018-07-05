@@ -1,7 +1,7 @@
 server {
 	listen 80;
 	location / {
-		proxy_pass http://{{ item.value.name }};
+		proxy_pass http://{{ item[0].value.name }};
         	proxy_set_header Host $host;
         	proxy_set_header X-Real-IP $remote_addr;
         	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -13,9 +13,9 @@ server {
 	}
 }
 
-upstream {{ item.value.name }} {
-        {{ item.value.lb_method }};
-	zone {{ item.value.name }} {{ item.value.zone_size }};
+upstream {{ item[0].value.name }} {
+        {{ item[0].value.lb_method }};
+	zone {{ item[0].value.name }} {{ item[0].value.zone_size }};
 
 	server localhost:8081;
 	server localhost:8082;

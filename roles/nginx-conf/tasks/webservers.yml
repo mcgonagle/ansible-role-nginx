@@ -1,3 +1,4 @@
+---
 - name: creating /usr/share/nginx/webserver directory
   file:
     path: "/usr/share/nginx/{{ item.value.name }}"
