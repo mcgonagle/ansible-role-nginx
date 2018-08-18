@@ -2,8 +2,7 @@
 default_nginx_error_log_level: "debug"
 default_nginx_worker_connections: "512"
 
-limit_req_zone: "limit_req_zone $binary_remote_addr zone=mylimit:10m"
-rate: "rate=10r/s;"
+rate: "limit_req_zone $binary_remote_addr zone=mylimit:10m rate=10r/s;"
 
 webservers:
     blue:
