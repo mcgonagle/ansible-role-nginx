@@ -26,8 +26,10 @@ http {
     keepalive_timeout  65;
 
     #gzip  on;
-    {% if cache is defined %}
+
+{% if cache is defined %}
     proxy_cache_path /data/nginx/cache keys_zone=one:10m;
-    {% endif %}
+{% endif %}
+
     include /etc/nginx/conf.d/*.conf;
 }
