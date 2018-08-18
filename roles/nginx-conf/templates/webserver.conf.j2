@@ -1,3 +1,10 @@
+{% if limit_req_zone is defined %}
+{{ limit_req_zone }}
+{% endif %}
+{% if rate is defined %}
+{{ rate }}
+{% endif %}
+
 server {
     listen       127.0.0.1:{{ item.value.port }};
 
