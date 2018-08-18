@@ -17,7 +17,7 @@
   notify:
     - reload nginx
 
-- name: write nginx upstream.d/loadbalancer.conf 
+- name: write nginx upstream.conf 
   action: template src=templates/upstream.conf.j2 dest=/etc/nginx/conf.d/{{ item.value.name }}.d/upstream.conf
   with_dict: "{{ loadbalancers }}"
   notify:

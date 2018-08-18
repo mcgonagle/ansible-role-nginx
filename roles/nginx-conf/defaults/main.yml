@@ -20,6 +20,6 @@ loadbalancers:
     backend:
       name: "backend"
       port: 80
-      lb_method: "least_conns"
+      lb_method: "least_conn"
       zone_size: "64k"
 ...
