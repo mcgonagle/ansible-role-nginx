@@ -2,6 +2,7 @@
 default_nginx_error_log_level: "debug"
 default_nginx_worker_connections: "512"
 cache: "true"
+rate_limit: "true"
 
 webservers:
     blue:

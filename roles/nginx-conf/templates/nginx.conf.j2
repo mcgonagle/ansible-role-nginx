@@ -31,5 +31,9 @@ http {
     proxy_cache_path /tmp/cache keys_zone=one:10m;
 {% endif %}
 
+{% if rate_limit is defined %}
+    limit_req_zone $binary_remote_addr zone=mylimit:10m rate=10r/s;
+{% endif %}
+
     include /etc/nginx/conf.d/*.conf;
 }
