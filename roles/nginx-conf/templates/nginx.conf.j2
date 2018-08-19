@@ -28,7 +28,7 @@ http {
     #gzip  on;
 
 {% if cache is defined %}
-    proxy_cache_path /data/nginx/cache keys_zone=one:10m;
+    proxy_cache_path /tmp/cache keys_zone=one:10m;
 {% endif %}
 
     include /etc/nginx/conf.d/*.conf;
