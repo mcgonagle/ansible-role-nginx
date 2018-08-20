@@ -18,7 +18,7 @@
 - name: copying {{ item.value.name }} keys
   file:
     src: "{{ item.value.name }}/{{ item.value.name }}.key"
-    dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.crt
+    dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.key
     owner: root
     group: root
     mode: 0755
