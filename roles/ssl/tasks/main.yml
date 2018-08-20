@@ -8,7 +8,7 @@
 
 - name: copying {{ item.value.name }} certs
   file:
-    src: {{ item.value.name }}/{{ item.value.name }}.crt
+    src: "{{ item.value.name }}/{{ item.value.name }}.crt"
     dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.crt
     owner: root
     group: root
@@ -17,7 +17,7 @@
 
 - name: copying {{ item.value.name }} keys
   file:
-    src: {{item.value.name }}/{{ item.value.name }}.key
+    src: "{{ item.value.name }}/{{ item.value.name }}.key"
     dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.crt
     owner: root
     group: root
