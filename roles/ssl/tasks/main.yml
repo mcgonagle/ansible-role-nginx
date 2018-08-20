@@ -1,4 +1,11 @@
 ---
+- name: creating /etc/ssl/nginx/webservers directories
+  file:
+    path: "/etc/ssl/nginx/webservers/{{ item.value.name }}"
+    state: directory
+    mode: 0755
+  with_dict: "{{ webservers }}"
+
 - debug:
     msg: "Writing nginx.conf"
 
