@@ -1,0 +1,27 @@
+---
+default_nginx_error_log_level: "debug"
+default_nginx_worker_connections: "512"
+
+limit_req_zone: "limit_req_zone $binary_remote_addr zone=mylimit:10m rate=10r/s;"
+
+webservers:
+    blue:
+      name: "blue"
+      port: 8081
+    red:
+      name: "red"
+      port: 8082
+    yellow:
+      name: "yellow"
+      port: 8083
+    green:
+      name: "green"
+      port: 8084
+
+loadbalancers:
+    backend:
+      name: "backend"
+      port: 80
+      lb_method: "least_conn"
+      zone_size: "64k"
+...
