@@ -24,8 +24,27 @@
     mode: 0755
   with_dict: "{{ webservers }}"
 
-- debug:
-    msg: "Writing nginx.conf"
+- name: write nginx webserver.conf files
+  action: template src=templates/webserver.conf.j2 dest=/etc/nginx/conf.d/{{ item.value.name }}.conf
+  with_dict: "{{ webservers }}"
+  notify:
+    - reload nginx
 
-- debug:
-    msg: "Reloading nginx"
+- name: creating /etc/nginx/conf.d/{{ item.value.name }} directory
+  file:
+    path: "/etc/nginx/conf.d/{{ item.value.name }}.d"
+    state: directory
+    mode: 0755
+  with_dict: "{{ loadbalancers }}"
+
+- name: write nginx loadbalancer.conf
+  action: template src=templates/loadbalancer.conf.j2 dest=/etc/nginx/conf.d/{{ item.value.name }}.conf
+  with_dict: "{{ loadbalancers }}"
+  notify:
+    - reload nginx
+
+- name: write nginx upstream.conf
+  action: template src=templates/upstream.conf.j2 dest=/etc/nginx/conf.d/{{ item.value.name }}.d/upstream.conf
+  with_dict: "{{ loadbalancers }}"
+  notify:
+    - reload nginx

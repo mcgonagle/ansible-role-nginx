@@ -1,7 +1,7 @@
-limit_req_zone $binary_remote_addr zone=mylimit:10m rate=10r/s;
-
 server {
     listen       127.0.0.1:{{ item.value.port }};
+    listen              127.0.0.1:{{ item.value.ssl_port }} ssl;
+    server_name         {{ item.value.name }}.example1.com;
 
     location / {
         root   /usr/share/nginx/{{ item.value.name }};
@@ -12,4 +12,7 @@ server {
     location = /50x.html {
         root   /usr/share/nginx/html;
     }
+
+    ssl_certificate     /etc/ssl/nginx/webservers/{{ item.value.name }}/{{ item.value.name }}.crt;
+    ssl_certificate     /etc/ssl/nginx/webservers/{{ item.value.name }}/{{ item.value.name }}.key;
 }

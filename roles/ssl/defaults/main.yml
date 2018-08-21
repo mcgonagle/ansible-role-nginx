@@ -8,20 +8,24 @@ webservers:
     blue:
       name: "blue"
       port: 8081
+      ssl_port: 8444
     red:
       name: "red"
       port: 8082
+      ssl_port: 8445
     yellow:
       name: "yellow"
       port: 8083
+      ssl_port: 8446
     green:
       name: "green"
       port: 8084
+      ssl_port: 8447
 
 loadbalancers:
-    backend:
-      name: "backend"
-      port: 80
+    ssl_backend:
+      name: "ssl_backend"
+      port: 443 
       lb_method: "least_conn"
       zone_size: "64k"
 ...
