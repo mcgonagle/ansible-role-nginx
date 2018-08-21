@@ -1,5 +1,8 @@
 server {
 	listen {{ item.value.port }};
+	ssl on;
+	ssl_certificate       /etc/ssl/nginx/webservers/{{ item.value.name }}/{{ item.value.name }}.crt;
+	ssl_certificate_key       /etc/ssl/nginx/webservers/{{ item.value.name }}/{{ item.value.name }}.crt;
 	location / {
 		proxy_pass https://{{ item.value.name }};
         	proxy_set_header Host $host;
