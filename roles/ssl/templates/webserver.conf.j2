@@ -1,5 +1,5 @@
 server {
-    listen       127.0.0.1:{{ item.value.port }};
+    #listen       127.0.0.1:{{ item.value.port }};
     listen              127.0.0.1:{{ item.value.ssl_port }} ssl;
     server_name         {{ item.value.name }}.example1.com;
 
