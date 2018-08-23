@@ -1,0 +1,65 @@
+---
+
+- name: creating /etc/ssl/nginx/webservers directories
+  file:
+    path: "/etc/ssl/nginx/webservers/{{ item.value.name }}"
+    state: directory
+    mode: 0755
+  with_dict: "{{ webservers }}"
+
+- name: copying {{ item.value.name }} certs
+  copy:
+    src: "{{ item.value.name }}/{{ item.value.name }}.crt"
+    dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.crt
+    owner: root
+    group: root
+    mode: 0755
+  with_dict: "{{ webservers }}"
+
+- name: copying {{ item.value.name }} keys
+  copy:
+    src: "{{ item.value.name }}/{{ item.value.name }}.key"
+    dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.key
+    owner: root
+    group: root
+    mode: 0755
+  with_dict: "{{ webservers }}"
+
+- name: creating /etc/ssl/nginx/webservers directories
+  file:
+    path: "/etc/ssl/nginx/webservers/{{ item.value.name }}"
+    state: directory
+    mode: 0755
+  with_dict: "{{ loadbalancers }}"
+
+- name: copying {{ item.value.name }} certs
+  copy:
+    src: "{{ item.value.name }}/{{ item.value.name }}.crt"
+    dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.crt
+    owner: root
+    group: root
+    mode: 0755
+  with_dict: "{{ loadbalancers }}"
+
+- name: copying {{ item.value.name }} keys
+  copy:
+    src: "{{ item.value.name }}/{{ item.value.name }}.key"
+    dest: /etc/ssl/nginx/webservers/{{item.value.name }}/{{ item.value.name }}.key
+    owner: root
+    group: root
+    mode: 0755
+  with_dict: "{{ loadbalancers }}"
+
+- name: write nginx webserver.conf files
+  action: template src=templates/webserver.conf.j2 dest=/etc/nginx/conf.d/ssl_{{ item.value.name }}.conf
+  with_dict: "{{ webservers }}"
+  notify:
+    - reload nginx
+
+- name: creating /etc/nginx/conf.d/{{ item.value.name }} directory
+  file:
+    path: "/etc/nginx/conf.d/{{ item.value.name }}.d"
+    state: directory
+    mode: 0755
+  with_dict: "{{ loadbalancers }}"
+
