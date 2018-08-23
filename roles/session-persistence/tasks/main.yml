@@ -1,6 +1,0 @@
----
-- debug:
-    msg: "Writing nginx.conf"
-
-- debug:
-    msg: "Reloading nginx"

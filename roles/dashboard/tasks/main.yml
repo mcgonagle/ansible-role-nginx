@@ -1,5 +1,0 @@
----
-- name: write nginx dashboard.conf files
-  action: template src=templates/dashboard.conf.j2 dest=/etc/nginx/conf.d/dashboard.conf
-  notify:
-    - reload nginx
