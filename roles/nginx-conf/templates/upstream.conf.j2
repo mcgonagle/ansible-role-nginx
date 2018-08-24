@@ -7,7 +7,9 @@ upstream {{ item.value.name }} {
 	server localhost:8083;
 	server localhost:8084;
 
-	#sticky cookie srv_id expires=1h  path=/;
+{% if sticky_cookie is defined %}
+	sticky cookie srv_id expires=1h  path=/;
+{% endif %}
 
 	#server side cookie
 	#sticky learn

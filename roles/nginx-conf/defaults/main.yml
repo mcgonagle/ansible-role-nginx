@@ -1,9 +1,14 @@
 ---
+#nginx.conf config file options
 default_nginx_error_log_level: "debug"
 default_nginx_worker_connections: "512"
+
 cache: "true"
 rate_limit: "true"
+active_health_checks: "true"
 
+
+#webservers data dictonary
 webservers:
     blue:
       name: "blue"
@@ -18,10 +23,12 @@ webservers:
       name: "green"
       port: 8084
 
+#loadbalancers data dictionary
 loadbalancers:
     backend:
       name: "backend"
       port: 80
       lb_method: "least_conn"
       zone_size: "64k"
+      sticky_cookie: "false"
 ...
