@@ -1,5 +1,4 @@
 ---
-
 - name: creating /etc/nginx/conf.d/{{ item.value.name }} directory
   file:
     path: "/etc/nginx/conf.d/{{ item.value.name }}.d"
