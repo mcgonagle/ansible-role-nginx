@@ -2,7 +2,7 @@ upstream {{ item.value.name }} {
         {{ item.value.lb_method }};
 	zone {{ item.value.name }} {{ item.value.zone_size }};
 
-	server localhost:8444 weight={{ blue_weight|default("1") }};;
+	server localhost:8444 weight={{ blue_weight|default("1") }};
 	server localhost:8445;
 	server localhost:8446;
 	server localhost:8447;
