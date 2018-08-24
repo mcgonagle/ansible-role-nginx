@@ -21,6 +21,20 @@
   action: template src=templates/upstream.conf.j2 dest=/etc/nginx/conf.d/{{ item.value.name }}.d/upstream.conf
   with_dict: 
     - "{{ loadbalancers }}"
+  notify:
+    - reload nginx
+
+- name: creating /etc/nginx/conf.d/upstream.d/servers directory
+  file:
+    path: "/etc/nginx/conf.d/{{ item.value.name }}.d/servers"
+    state: directory
+    mode: 0755
+  with_dict: "{{ loadbalancers }}"
+
+- name: write nginx server configuration files
+  action: template src=templates/upstream_server_block.conf.j2 dest=/etc/nginx/conf.d/upstream.d/servers/server_{{ item.value.name }}.conf
+  with_dict: 
     - "{{ webservers }}"
   notify:
     - reload nginx
+
