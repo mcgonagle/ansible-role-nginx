@@ -32,7 +32,7 @@
   with_dict: "{{ loadbalancers }}"
 
 - name: write nginx server configuration files
-  action: template src=templates/upstream_server_block.conf.j2 dest=/etc/nginx/conf.d/backend.d/servers/server_webservers.conf
+  action: template src=templates/upstream_server_block.conf.j2 dest=/etc/nginx/conf.d/backend.d/servers/server_{{ item.value.name }}.conf
   with_dict: 
     - "{{ webservers }}"
   notify:
