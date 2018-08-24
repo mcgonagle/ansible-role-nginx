@@ -1,1 +1,1 @@
-        server localhost:{{ item.value.port }} weight={{ weight|default("1") }};
+        server localhost:{{ item.value.port }} weight={{ item.value.weight|default("1") }};
