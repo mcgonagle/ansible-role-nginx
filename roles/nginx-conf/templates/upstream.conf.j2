@@ -10,11 +10,4 @@ upstream {{ item.value.name }} {
 {% if sticky_cookie is defined %}
 	sticky cookie srv_id expires=1h  path=/;
 {% endif %}
-
-	#server side cookie
-	#sticky learn
-       	#	create=$upstream_cookie_examplecookie
-       	#	lookup=$cookie_examplecookie
-	#	zone=client_sessions:1m
-       	#	timeout=1h;
 }
