@@ -2,7 +2,7 @@ upstream {{ item.value.name }} {
         {{ item.value.lb_method }};
 	zone {{ item.value.name }} {{ item.value.zone_size }};
 
-	include servers/server_*.conf;
+	include /etc/nginx/conf.d/backend.d/servers/server_*.conf;
 
 {% if sticky_cookie is defined %}
 	sticky cookie srv_id expires=1h  path=/;
