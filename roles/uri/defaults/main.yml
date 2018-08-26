@@ -20,7 +20,7 @@ webservers:
       fail_timeout: "60s"
       slow_start: "0s"
       backup: "false"
-      down: "false"
+      down: "true"
     red:
       id: "1"
       name: "red"
@@ -31,7 +31,7 @@ webservers:
       fail_timeout: "60s"
       slow_start: "0s"
       backup: "false"
-      down: "false"
+      down: "true"
     yellow:
       id: "2"
       name: "yellow"
@@ -42,7 +42,7 @@ webservers:
       slow_start: "0s"
       fail_timeout: "60s"
       backup: "false"
-      down: "false"
+      down: "true"
     green:
       id: "3"
       name: "green"
@@ -53,7 +53,7 @@ webservers:
       fail_timeout: "60s"
       slow_start: "0s"
       backup: "false"
-      down: "false"
+      down: "true"
 
 #loadbalancers data dictionary
 loadbalancers:
