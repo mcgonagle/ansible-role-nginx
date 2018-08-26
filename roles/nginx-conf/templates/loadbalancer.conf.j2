@@ -1,5 +1,5 @@
 server {
-	listen 80;
+	listen *:80 ipv6only=off;
 	location / {
 		proxy_pass http://{{ item.value.name }};
 		health_check;
