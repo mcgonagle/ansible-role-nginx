@@ -1,5 +1,5 @@
 server {
-	listen {{ item.value.port }};
+	listen *:{{ item.value.port }} ipv6only=off;
 	ssl on;
 	ssl_certificate       /etc/ssl/nginx/webservers/{{ item.value.name }}/{{ item.value.name }}.crt;
 	ssl_certificate_key       /etc/ssl/nginx/webservers/{{ item.value.name }}/{{ item.value.name }}.key;
