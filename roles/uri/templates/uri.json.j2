@@ -1,4 +1,6 @@
 {
 	"server": "127.0.0.1:{{ item.value.port }}",
+ 	"weight": "{{ item.value.weight }}",
 	"down": "{{ item.value.down }}"
+	"drain": "{{ item.value.drain }}"
 }
