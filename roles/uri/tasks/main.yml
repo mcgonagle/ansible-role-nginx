@@ -3,5 +3,7 @@
   uri:
     url: http://127.0.0.1:8089/api/3/http/upstreams/backend/servers
     method: POST
+    headers:
+        Content-Type: "application/json"
     body: "{{ lookup('template','uri.json.j2') }}"
     body_format: json
