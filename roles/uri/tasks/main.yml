@@ -2,7 +2,7 @@
 - name: Add a server to a pool
   uri:
     url: http://{{ inventory_hostname }}/api/3/http/upstreams/backend/servers
-    method: POST
+    method: DELETE
     headers:
         Content-Type: "application/json"
     body: "{{ lookup('template','uri.json.j2') }}"
