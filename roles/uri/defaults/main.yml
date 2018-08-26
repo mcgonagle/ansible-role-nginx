@@ -11,21 +11,49 @@ active_health_checks: "true"
 #webservers data dictonary
 webservers:
     blue:
+      id: "0"
       name: "blue"
       port: 8081
       weight: 1 
+      max_conns: 0
+      max_fails: 0
+      fail_timeout: "60s"
+      slow_start: "0s"
+      backup: "false"
+      down: "false"
     red:
+      id: "1"
       name: "red"
       port: 8082
       weight: 1 
+      max_conns: 0
+      max_fails: 0
+      fail_timeout: "60s"
+      slow_start: "0s"
+      backup: "false"
+      down: "false"
     yellow:
+      id: "2"
       name: "yellow"
       port: 8083
       weight: 1 
+      max_conns: 0
+      max_fails: 0
+      slow_start: "0s"
+      fail_timeout: "60s"
+      backup: "false"
+      down: "false"
     green:
+      id: "3"
       name: "green"
       port: 8084
       weight: 1 
+      max_conns: 0
+      max_fails: 0
+      fail_timeout: "60s"
+      slow_start: "0s"
+      backup: "false"
+      down: "false"
 
 #loadbalancers data dictionary
 loadbalancers:
