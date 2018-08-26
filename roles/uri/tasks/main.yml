@@ -1,0 +1,7 @@
+---
+- name: Add a server to a pool
+  uri:
+    url: http://127.0.0.1:8089/api/3/http/upstreams/backend/servers
+    method: POST
+    body: "{{ lookup('template','uri.json.j2') }}"
+    body_format: json
