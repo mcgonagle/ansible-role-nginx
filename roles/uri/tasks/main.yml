@@ -1,9 +1,10 @@
 ---
 - name: Add a server to a pool
   uri:
-    url: http://10.42.0.43/api/3/http/upstreams/backend/servers
+    url: http://{{ inventory_hostname }}/api/3/http/upstreams/backend/servers
     method: POST
     headers:
         Content-Type: "application/json"
     body: "{{ lookup('template','uri.json.j2') }}"
     body_format: json
+    status_code: [ 200, 201 ]
