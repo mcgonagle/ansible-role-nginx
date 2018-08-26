@@ -1,10 +1,11 @@
 ---
-- name: Add a server to a pool
+- name: manage the backends
   uri:
-    url: http://{{ inventory_hostname }}/api/3/http/upstreams/backend/servers
-    method: DELETE
+    url: http://{{ inventory_hostname }}/api/3/http/upstreams/backend/servers/{{ item.value.id }}
+    method: PATCH
     headers:
         Content-Type: "application/json"
     body: "{{ lookup('template','uri.json.j2') }}"
     body_format: json
     status_code: [ 200, 201 ]
+  with_dict: "{{ webservers }}"

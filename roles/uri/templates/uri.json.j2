@@ -1,5 +1,4 @@
 {
-	"server": "172.16.10.254:80",
-	"max_fails": 1,
-	"fail_timeout": "60s"
+	"server": "{{ item.value.name }}:{{ item.value.port }}",
+	"down": "{{ item.value.down }}"
 }
