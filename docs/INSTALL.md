@@ -1,22 +1,11 @@
-# ansible_f5
+# NGINX+ Ansbile Demo
 
-## Overview
 
-This repository provides the foundation for working with F5 devices and Ansible.
-The architecture of the modules makes inherent use of the BIG-IP SOAP and REST
-APIs as well as the tmsh API where required.
-
-These modules are freely provided to the open source community for automating
-BIG-IP device configurations using Ansible. Support for the modules is provided
-on a best effort basis by the F5 community. Please file any bugs, questions or
-enhancement requests using [Github Issues](https://github.com/F5Networks/f5-ansible/issues)
 
 ### Requirements
 
 * [Ansible 2.2.0 or greater][installing]
-* Advanced shell for user account enabled - Note this requierment it caught me and took me a while to realize.
-* [bigsuds Python Client 1.0.4 or later][bigsuds]
-* [f5-sdk Python Client, latest available][f5-sdk]
+
 
 ### Documentation
 Pip does not come pre-installed on a mac. To install run 
@@ -71,21 +60,6 @@ ansible --version
 ansible 2.3.0
   config file =
   configured module search path = Default w/o overrides
-```
-
-I had to set the PYTHONPATH to find the bigsuds and suds modules.
-
-```
-export PYTHONPATH=/Users/tom/ansible2/lib/python2.7/site-packages 
-```
-
-I also had to set the **validate_certs: "false"** in my site.yml for each bigip module call. As of Python 2.7.9, python won't work with self signed certificates, which I use in my lab environment. 
-
-Several of the BigIP ansible modules depend on Bigsuds, and or the Python F5-SDK. Make sure to install both via pip.
-
-```
-pip install bigsuds
-pip install f5-sdk
 ```
 
 ## ansible-vault
