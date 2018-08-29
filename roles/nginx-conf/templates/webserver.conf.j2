@@ -1,5 +1,5 @@
 server {
-    listen       127.0.0.1:{{ item.value.port }};
+    listen       127.0.0.1:{{ item.value.port }} ipv6only=off;
 
     location / {
         root   /usr/share/nginx/{{ item.value.name }};

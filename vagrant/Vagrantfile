@@ -1,0 +1,21 @@
+$script = <<-SCRIPT
+#!/bin/bash
+sudo setenforce 0
+sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux && cat /etc/sysconfig/selinux
+#sudo yum update -y
+#sudo yum update openssl -y
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.hostname = "ansible-playbook.localdomain"
+  config.vm.network "private_network", ip: "192.168.110.1", virtualbox__intnet: true
+  config.vm.network "private_network", ip: "10.42.0.43", :name => 'vboxnet0', :adapter => 3 
+  config.vm.network "forwarded_port", guest: 80, host: 8089
+  config.vm.network "forwarded_port", guest: 443, host: 8443
+  config.vm.provider "virtualbox" do |v|
+        v.memory = 1024
+        v.cpus = 1
+  end
+  config.vm.provision "shell", inline: $script
+end
