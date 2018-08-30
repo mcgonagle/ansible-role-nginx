@@ -1,8 +1,8 @@
-# Infrastructure as Code Principles, Practices, and Patterns
+# Layer 7  as Code Principles, Practices, and Patterns
 
-## Principles of Infrastructure as Code
+## Principles of Layer 7 as Code
   
-* Modularity – Our services should be small and simple –think at the level of the simplest 
+* Modularity – Our services should be small and simple, at the level of the simplest 
   Free-standing, useful component.
 
 * Cooperation – Our design should discourage overlap of services, and should encourage other people and services to use our service in a way which fosters continuous improvement of our design and implementation.

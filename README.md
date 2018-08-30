@@ -41,8 +41,8 @@ set cc=
 This ansible repository is organized into roles. Roles are collections of templates, files, tasks,
 and variables. Tasks are organized based on the particular module they are implementing. 
 
-## Infrastructure as Code Principles, Practices and Patterns
-[Infrastructure as Code Benefits](docs/IAC.md)
+## Layer 7 as Code Principles, Practices and Patterns
+[Layer 7 as Code Benefits](docs/L7AC.md)
 
 ## License
 ### Apache V2.0
