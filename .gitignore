@@ -2,3 +2,7 @@
 ############################
 *.crt
 *.key
+roles/nginx-conf/templates/webserver.html.j2_old
+playbooks/nginx-conf.retry
+roles/nginx-conf/templates/.swp
+.DS_Store
