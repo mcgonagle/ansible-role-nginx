@@ -1,7 +1,9 @@
-# NGINX+ Ansible Demo
+# NGINX+ Ansible Demo - Layer 7 Services as Code (L7aC)
 
 [![NGINX+ Ansible Demo](docs/ansible_demo.png)](https://www.nginx.com/products/nginx/ "NGINX+")
 
+## Layer 7 Services as Code (L7aC) -  Principles, Practices and Patterns
+[Layer 7 Services as Code (L7aC) -  Benefits](docs/L7AC.md)
 
 ## Installing Ansible
 
@@ -40,9 +42,6 @@ set cc=
 ## Ansible Roles
 This ansible repository is organized into roles. Roles are collections of templates, files, tasks,
 and variables. Tasks are organized based on the particular module they are implementing. 
-
-## Layer 7 as Code Principles, Practices and Patterns
-[Layer 7 as Code Benefits](docs/L7AC.md)
 
 ## License
 ### Apache V2.0

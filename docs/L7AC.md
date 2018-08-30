@@ -1,6 +1,6 @@
-# Layer 7  as Code Principles, Practices, and Patterns
+# Layer 7 Services as Code (L7aC) Principles, Practices, and Patterns
 
-## Principles of Layer 7 as Code
+## Principles of Layer 7 Services as Code (L7aC)
   
 * Modularity – Our services should be small and simple, at the level of the simplest 
   Free-standing, useful component.
