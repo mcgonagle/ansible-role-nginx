@@ -1,6 +1,6 @@
 # Layer 7 Services as Code (L7aC) Principles, Practices, and Patterns
 
-## OSI Referenxce Model
+## OSI Reference Model
 [![NGINX+ Ansible Demo](osi.png)](https://en.wikipedia.org/wiki/OSI_model "OSI Reference Model")
 
 ## Principles of Layer 7 Services as Code (L7aC)
