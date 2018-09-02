@@ -1,13 +1,14 @@
 # NGINX+ Ansible Demo - Layer 7 Services as Code (L7aC)
 
-[![NGINX+ Ansible Demo](docs/ansible_demo.png)](https://www.nginx.com/products/nginx/ "NGINX+")
-
-## NGINX is the most flexible ADC 
 [![NGINX+ Ansible Demo](docs/flexible.png)](https://www.nginx.com/products/nginx/ "NGINX+")
 
+[![NGINX+ Ansible Demo](docs/ansible_demo.png)](https://www.nginx.com/products/nginx/ "NGINX+")
 
 ## Layer 7 Services as Code (L7aC) -  Principles, Practices and Patterns
 [Layer 7 Services as Code (L7aC) -  Benefits](docs/L7AC.md)
+
+## L7aC "Stratactics"
+[L7aC Strategies and Tactics](docs/stratactics.md)
 
 ## Installing Ansible
 
