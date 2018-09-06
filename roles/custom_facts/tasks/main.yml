@@ -35,6 +35,9 @@
         dest: /etc/ansible/facts.d/role.fact
         mode: 0755
 
+    - name: "Re-run setup to use custom facts"
+      setup: ~
+
     - name: datacenter fact
       debug:
         msg: "{{ ansible_local.datacenter.name }}"
