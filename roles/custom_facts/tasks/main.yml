@@ -41,12 +41,11 @@
     - name: datacenter fact
       debug:
         msg: "{{ ansible_local.datacenter.name }}"
-      when: ansible_local.datacenter.name == "vagrant" 
 
     - name: Am I a Vagrant Data Center
       debug:
         msg: "I am a {{ ansible_local.datacenter.name }} data center"
-        when: ansible_local.datacenter.name == "vagrant" 
+      when: ansible_local.datacenter.name == "vagrant" 
     
     - name: domain fact
       debug:
