@@ -1,0 +1,56 @@
+---
+# tasks file for custom_facts
+    - name: "Create custom fact directory"
+      file:
+        path: "/etc/ansible/facts.d"
+        state: "directory" 
+
+    - name: "Insert datacenter custom fact"
+      copy: 
+        src: files/datacenter.fact
+        dest: /etc/ansible/facts.d/datacenter.fact
+        mode: 0755
+
+    - name: "Insert zone custom fact"
+      copy: 
+        src: files/zone.fact
+        dest: /etc/ansible/facts.d/zone.fact
+        mode: 0755
+
+    - name: "Insert domain custom fact"
+      copy: 
+        src: files/domain.fact
+        dest: /etc/ansible/facts.d/domain.fact
+        mode: 0755
+
+    - name: "Insert product custom fact"
+      copy: 
+        src: files/product.fact
+        dest: /etc/ansible/facts.d/product.fact
+        mode: 0755
+
+    - name: "Insert role custom fact"
+      copy: 
+        src: files/role.fact
+        dest: /etc/ansible/facts.d/role.fact
+        mode: 0755
+
+    - name: datacenter fact
+      debug:
+        msg: "{{ ansible_local.datacenter.name }}"
+    
+    - name: domain fact
+      debug:
+        msg: "{{ ansible_local.domain.name }}"
+
+    - name: zone fact 
+      debug:
+        msg: "{{ ansible_local.zone.name }}"
+
+    - name: product fact 
+      debug:
+        msg: "{{ ansible_local.product.name }}"
+
+    - name: role fact 
+      debug:
+        msg: "{{ ansible_local.role.name }}"
