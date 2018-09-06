@@ -2,6 +2,6 @@
 
 cat <<EOF
 {
-    "servers" : "{{ servers | to_json }}"
+    "servers" : "{{ item.value.name | to_json }}"
 }
 EOF
