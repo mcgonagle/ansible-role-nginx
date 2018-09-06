@@ -69,4 +69,4 @@
 
     - name: write nginx webserver.conf files
       action: template src=templates/servers.fact.j2 dest=/etc/ansible/facter.d/servers.fact
-      with_items: "{{ servers }}"
+      with_dict: "{{ servers }}"
