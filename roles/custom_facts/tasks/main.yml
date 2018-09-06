@@ -62,3 +62,7 @@
     - name: role fact 
       debug:
         msg: "{{ ansible_local.role.name }}"
+
+    - name: servers to json
+      debug:
+        msg: "{{ servers | to_json }}"
