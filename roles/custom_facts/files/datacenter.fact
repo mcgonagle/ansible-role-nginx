@@ -1,7 +1,8 @@
 #!/bin/bash
 
+DATACENTER=$(dnsdomainname)
 cat <<EOF
 {
-    "name" : "vagrant"
+    "name" : "$DATACENTER"
 }
 EOF

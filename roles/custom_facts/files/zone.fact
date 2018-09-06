@@ -1,7 +1,9 @@
 #!/bin/bash
 
+ZONE=$(hostname|cut -c 6-7)
+
 cat <<EOF
 {
-    "name" : "dev"
+    "name" : "$ZONE"
 }
 EOF

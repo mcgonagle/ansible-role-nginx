@@ -1,7 +1,9 @@
 #!/bin/bash
 
+DOMAIN=$(dnsdomainname)
+
 cat <<EOF
 {
-    "name" : "nginx.com"
+    "name" : "$DOMAIN"
 }
 EOF
