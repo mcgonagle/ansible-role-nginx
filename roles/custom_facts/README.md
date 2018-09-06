@@ -1,6 +1,6 @@
-#Isomorphism and Custom Facts
+# Isomorphism and Custom Facts
 
-##Isomoprhic Hostname
+## Isomoprhic Hostname
 * wwwplqa01.cam.example.net
     * www -> role
     * pl -> product
@@ -11,13 +11,13 @@
 * example.net -> domain
 * wwwplqa01.cam.example.net -> fqdn
 
-##Isomoprhic IP Addresses
+## Isomoprhic IP Addresses
 * 10.1.1.1
     * 10.1 -> datacenter   
     * 10.1.1 -> zone/product
     * 10.1.1.1 -> possible role
 
-##Ansible Gather Facts Command
+## Ansible Gather Facts Command
 ```
 (ansible)$ ansible nginx -m setup --private-key ~/Dropbox/Ansible_Playbook/.vagrant/machines/default/virtualbox/private_key -u vagrant
 ```
