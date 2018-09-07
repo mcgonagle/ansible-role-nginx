@@ -17,6 +17,141 @@
     * 10.1.1 -> zone/product
     * 10.1.1.1 -> possible role
 
+## Metrics Driven Autonomic Computing
+```
+#!/bin/bash
+
+connections=$(curl -s http://localhost/api/3/connections/)
+
+echo $connections
+```
+
+```
+#!/bin/bash
+
+upstreams=$(curl -s http://localhost/api/3/http/upstreams/)
+
+echo $upstreams
+```
+
+```
+(ansible)$ ansible nginx -m setup -a 'filter=ansible_local' --private-key ~/Dropbox/Ansible_Playbook/.vagrant/machines/default/virtualbox/private_key -u vagrant
+10.42.0.43 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_local": {
+            "connections": {
+                "accepted": 3445,
+                "active": 1,
+                "dropped": 0,
+                "idle": 1
+            },
+            "datacenter": {
+                "name": "cam.example.net"
+            },
+            "domain": {
+                "name": "cam.example.net"
+            },
+            "pool": {
+                "servers": [
+                    "server1",
+                    "server2",
+                    "server3"
+                ]
+            },
+            "product": {
+                "name": "pl"
+            },
+            "role": {
+                "name": "www"
+            },
+            "upstreams": {
+                "backend": {
+                    "keepalive": 0,
+                    "peers": [
+                        {
+                            "active": 0,
+                            "backup": false,
+                            "downtime": 0,
+                            "fails": 0,
+                            "health_checks": {
+                                "checks": 373,
+                                "fails": 0,
+                                "last_passed": true,
+                                "unhealthy": 0
+                            },
+                            "id": 0,
+                            "name": "127.0.0.1:8086",
+                            "received": 0,
+                            "requests": 0,
+                            "responses": {
+                                "1xx": 0,
+                                "2xx": 0,
+                                "3xx": 0,
+                                "4xx": 0,
+                                "5xx": 0,
+                                "total": 0
+                            },
+                            "sent": 0,
+                            "server": "127.0.0.1:8086",
+                            "state": "up",
+                            "unavail": 0,
+                            "weight": 1
+                        },
+                        {
+                            "active": 0,
+                            "backup": false,
+                            "downtime": 0,
+                            "fails": 0,
+                            "health_checks": {
+                                "checks": 373,
+                                "fails": 0,
+                                "last_passed": true,
+                                "unhealthy": 0
+                            },
+                            "id": 1,
+                            "name": "127.0.0.1:8081",
+                            "received": 0,
+                            "requests": 0,
+                            "responses": {
+                                "1xx": 0,
+                                "2xx": 0,
+                                "3xx": 0,
+                                "4xx": 0,
+                                "5xx": 0,
+                                "total": 0
+                            },
+                            "sent": 0,
+                            "server": "127.0.0.1:8081",
+                            "state": "up",
+                            "unavail": 0,
+                            "weight": 1
+                        },
+                        {
+                            "active": 0,
+                            "backup": false,
+                            "downtime": 0,
+                            "fails": 0,
+                            "health_checks": {
+                                "checks": 373,
+                                "fails": 0,
+                                "last_passed": true,
+                                "unhealthy": 0
+                            }
+                      ],
+                    "zombies": 0,
+                    "zone": "backend"
+                }
+            },
+            "zone": {
+                "name": "qa"
+            }
+        }
+    },
+    "changed": false
+}
+
+```
+
 ## Autonomic Computing Characteristics
 [Autonomic Computing Characteristics](https://en.wikipedia.org/wiki/Autonomic_computing#Characteristics_of_autonomic_systems)
 
