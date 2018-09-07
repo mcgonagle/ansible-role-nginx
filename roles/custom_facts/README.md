@@ -18,6 +18,7 @@
     * 10.1.1.1 -> possible role
 
 ## Metrics Driven Autonomic Computing
+### connections.fact
 ```
 #!/bin/bash
 
@@ -25,7 +26,7 @@ connections=$(curl -s http://localhost/api/3/connections/)
 
 echo $connections
 ```
-
+### upstreams.fact
 ```
 #!/bin/bash
 
