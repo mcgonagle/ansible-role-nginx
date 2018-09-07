@@ -81,7 +81,7 @@
 
     - name: upstreams fact 
       debug:
-        msg: "{{ ansible_local.upstreams.peers[0].name }}"
+        msg: "{{ ansible_local.upstreams.backend.peers[0].name }}"
 
 
     - name: servers to json
