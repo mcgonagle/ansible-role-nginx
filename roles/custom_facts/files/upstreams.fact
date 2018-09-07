@@ -1,0 +1,5 @@
+#!/bin/bash
+
+connections=$(curl -s http://localhost/api/3/http/upstreams/)
+
+echo $connections

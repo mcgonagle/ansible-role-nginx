@@ -41,6 +41,11 @@
         dest: /etc/ansible/facts.d/connections.fact
         mode: 0755
 
+    - name: "Insert upstreams custom fact"
+      copy: 
+        src: files/upstreams.fact
+        dest: /etc/ansible/facts.d/upstreams.fact
+        mode: 0755
 
     - name: "Re-run setup to use custom facts"
       setup: ~
@@ -73,6 +78,10 @@
     - name: connections fact 
       debug:
         msg: "{{ ansible_local.connections.active }}"
+
+    - name: upstreams fact 
+      debug:
+        msg: "{{ ansible_local.upstreams.peers[1] }}"
 
 
     - name: servers to json
