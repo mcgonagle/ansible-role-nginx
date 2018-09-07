@@ -35,6 +35,13 @@
         dest: /etc/ansible/facts.d/role.fact
         mode: 0755
 
+    - name: "Insert connections custom fact"
+      copy: 
+        src: files/connections.fact
+        dest: /etc/ansible/facts.d/connections.fact
+        mode: 0755
+
+
     - name: "Re-run setup to use custom facts"
       setup: ~
 
@@ -63,10 +70,15 @@
       debug:
         msg: "{{ ansible_local.role.name }}"
 
+    - name: connections fact 
+      debug:
+        msg: "{{ ansible_local.connections.active }}"
+
+
     - name: servers to json
       debug:
         msg: "{{ servers | to_json }}"
 
-    - name: write nginx webserver.conf files
-      action: template src=templates/servers.fact.j2 dest=/etc/ansible/facts.d/servers.fact
-      with_dict: "{{ servers }}"
+    #- name: write nginx webserver.conf files
+    #  action: template src=templates/servers.fact.j2 dest=/etc/ansible/facts.d/servers.fact
+    #  with_dict: "{{ servers }}"
