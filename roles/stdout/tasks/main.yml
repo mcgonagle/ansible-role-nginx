@@ -11,3 +11,16 @@
 
 - debug: 
   msg: "{{ hello.stdout_lines }}"
+
+- name: print nginx -T 
+  command: /usr/sbin/nginx -T 
+  register: nginx 
+
+- debug: 
+  msg: "{{ nginx.stdout }}"
+
+- debug: 
+  msg: "{{ nginx.stderr }}"
+
+- debug: 
+  msg: "{{ nginx.stdout_lines }}"
