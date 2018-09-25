@@ -18,4 +18,5 @@
   register: nginx 
 
 - debug: 
-    var:  nginx.stdout_lines | to_nice_json
+  #var:  nginx.stdout_lines | to_nice_json
+    var:  nginx.stdout_lines 
