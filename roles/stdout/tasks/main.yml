@@ -13,7 +13,7 @@
   msg: "{{ hello.stdout_lines }}"
 
 - name: print nginx -T 
-  command: /usr/sbin/nginx -T 
+  command: sudo /usr/sbin/nginx -T 
   register: nginx 
 
 - debug: 
