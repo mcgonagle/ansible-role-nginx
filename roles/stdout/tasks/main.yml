@@ -3,6 +3,6 @@
   command: echo "hello"
   register: hello
 
-  - debug: msg="{{ hello.stdout }}"
+  - debug: "msg= {{ hello.stdout }}"
 
-  - debug: msg="{{ hello.stderr }}"
+  - debug: "msg= {{ hello.stderr }}"
