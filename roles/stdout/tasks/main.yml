@@ -18,10 +18,10 @@
   register: nginx 
 
 - debug: 
-  msg: "{{ nginx.stdout }}"
+  var: "{{ nginx.stdout }}"
 
 - debug: 
-  msg: "{{ nginx.stderr }}"
+  var: "{{ nginx.stderr }}"
 
 - debug: 
-  msg: "{{ nginx.stdout_lines }}"
+  var: "{{ nginx.stdout_lines }}"
