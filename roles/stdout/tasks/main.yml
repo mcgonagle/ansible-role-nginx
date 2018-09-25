@@ -8,3 +8,6 @@
 
 - debug: 
   msg: "{{ hello.stderr }}"
+
+- debug: 
+  msg: "{{ hello.stdout_lines }}"
