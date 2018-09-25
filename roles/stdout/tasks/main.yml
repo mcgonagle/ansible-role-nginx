@@ -33,4 +33,5 @@
 
 - debug: 
   var: "{{ nginx2 }}"
+  verbosity: 2
 
