@@ -18,20 +18,4 @@
   register: nginx 
 
 - debug: 
-    var: "{{ nginx.stdout }}"
-
-- debug: 
-    var: "{{ nginx.stderr }}"
-
-- debug: 
-    var: "{{ nginx.stdout_lines }}"
-
-- name: print nginx -T 
-  shell: /usr/sbin/nginx -T 
-  become: yes
-  register: nginx2
-
-- debug: 
-    var: "{{ nginx2 }}"
-    verbosity: 2
-
+    var: "{{ nginx.to_json }}"
