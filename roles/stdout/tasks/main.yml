@@ -18,4 +18,4 @@
   register: nginx 
 
 - debug: 
-  var:  nginx | to_nice_json
+    var:  nginx | to_nice_json
