@@ -4,13 +4,13 @@
   register: hello
 
 - debug: 
-  msg: "{{ hello.stdout }}"
+    msg: "{{ hello.stdout }}"
 
 - debug: 
-  msg: "{{ hello.stderr }}"
+    msg: "{{ hello.stderr }}"
 
 - debug: 
-  msg: "{{ hello.stdout_lines }}"
+    msg: "{{ hello.stdout_lines }}"
 
 - name: print nginx -T 
   shell: /usr/sbin/nginx -T 
@@ -18,13 +18,13 @@
   register: nginx 
 
 - debug: 
-  var: "{{ nginx.stdout }}"
+    var: "{{ nginx.stdout }}"
 
 - debug: 
-  var: "{{ nginx.stderr }}"
+    var: "{{ nginx.stderr }}"
 
 - debug: 
-  var: "{{ nginx.stdout_lines }}"
+    var: "{{ nginx.stdout_lines }}"
 
 - name: print nginx -T 
   shell: /usr/sbin/nginx -T 
@@ -32,6 +32,6 @@
   register: nginx2
 
 - debug: 
-  var: "{{ nginx2 }}"
-  verbosity: 2
+    var: "{{ nginx2 }}"
+    verbosity: 2
 
